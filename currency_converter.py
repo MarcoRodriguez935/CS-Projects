@@ -1,10 +1,10 @@
-# Currencies include: USD, EUR, MXC, YPY, GBP, CHF, CAD,
+# Currencies include: USD, EUR, MXC, YPY, GBP, CHF, CAD, and VES
 # Goal: Allow user to input USD amount and convert to a selected currency.
 # Inspired by Tech by Tim: YouTube Video: Learn Python With This ONE Project!
 
 
 def currencies(dol):
-    answer = input("OPTIONS:\n(1) Euros\n(2) Pesos\n(3) Yen\n(4) Pounds\n(5) Franc\n(6) Canadian Dollar")
+    answer = input("OPTIONS:\n(1) Euros\n(2) Pesos\n(3) Yen\n(4) Pounds\n(5) Franc\n(6) Canadian Dollar\n(7) Venezuelan Bolivar")
     if answer == "1":
         conversion = (dol * 0.92)
         print(f"Your new balance is {conversion} euros.")
@@ -23,6 +23,9 @@ def currencies(dol):
     elif answer == "6":
         conversion = (dol * 1.34)
         print(f"Your new balance is {conversion} Canadian dollars.")
+    elif answer == "7":
+        conversion = (dol * 21.49)
+        print(f"Your new balance is {conversion} bolivars")
     else:
         print("Invalid Input")
 
@@ -46,12 +49,15 @@ def main():
     wallet = current_balance()
     while True:
         print(f"Your current balance is ${wallet} USD")
-        answer = input("Currency Options (c), or Quit Program (q)")
+        answer = input("Currency Options (c), Enter a New Deposit (e), or Quit Program (q)")
         if answer.lower() == "q":
             print("Program Exited")
             quit()
         elif answer.lower() == "c":
             currencies(wallet)
+            continue
+        elif answer.lower() == "e":
+            wallet = current_balance()
 
 
 main()
